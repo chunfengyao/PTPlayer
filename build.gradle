@@ -25,6 +25,21 @@ allprojects {
     }
 }
 
+
 task clean(type: Delete) {
-    delete rootProject.buildDir
+    //Tinker生成的文件位于buildDir下，故，此处清理的文件需要避开Tinker的文件（亦或修改Tinker的生成目录）
+//    delete rootProject.buildDir
+}
+//def gitSha() {
+//    return 'git rev-parse --short HEAD'.execute().text.trim()
+//}
+//buildConfig{
+//    print("\n\n\n\n\n\n\n")
+//    tasks.getByPath("app:tinkerProcessDebugManifest").setProperty("TINKER_ID","e4f088a")
+//    println "------------------tinkerId: " + tinkerId
+//}
+//
+
+def is_gradle_3() {
+    return hasProperty('GRADLE_3') && GRADLE_3.equalsIgnoreCase('TRUE')
 }
